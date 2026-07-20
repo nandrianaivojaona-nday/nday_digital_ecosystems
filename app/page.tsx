@@ -26,7 +26,7 @@ const platforms: Platform[] = [
     className: "fako",
     desc: "Waste management ecosystem connecting citizens, collectors, operators and municipalities.",
     status: "online",
-    url: "https://nday-fako.web.app",
+    url: "https://nda-y-fako-digital-platform.vercel.app",
   },
   {
     name: "NdaY'Tantsaha",

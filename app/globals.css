@@ -126,22 +126,26 @@ p {
 /* 🔥 CENTERED + CLEAN */
 .platform-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
-  justify-content: center; /* 🔥 center grid */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  padding: 20px 0;
+  width: 100%;
+  align-items: stretch;
 }
 
 /* ================= PLATFORM CARD ================= */
 
 .platform-card {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-  height: 260px;
-  padding: 20px;
+  min-height: 320px;
+  padding: 2rem;
+
+  position: relative;
+
 
   border-radius: 18px;
   overflow: hidden;
@@ -214,14 +218,15 @@ p {
 /* ================= CARD TEXT ================= */
 
 .platform-card h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: .75rem;
+  text-align: center;
+  width: 100%;
 }
 
 .platform-card p {
-  font-size: 0.9rem;
-  color: rgba(79, 69, 69, 0.051);
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 /* ================= LOGO ================= */

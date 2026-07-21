@@ -79,7 +79,8 @@ export default function Home() {
 
       {/* 2. APP IDENTITY HEADER (The Title & Subtitle) */}
       {/* We use pt-32 to start exactly where the nav bar ends */}
-      <section className="mx-auto max-w-7xl px-6 pt-32 pb-12">
+      <section className="w-full px-8 pt-32 pb-12">
+        {/* We don't need this anymore since we have the header telling the same thing 
         <div className="border-l-4 border-white/20 pl-6 py-2">
           <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow-lg md:text-6xl">
             NdaY’ Digital Ecosystems
@@ -88,6 +89,7 @@ export default function Home() {
             Bridging Innovation and Community for a Sustainable Madagascar
           </p>
         </div>
+        */}
 
         {/* 3. ECOSYSTEM GRID (Starts immediately after the title) */}
         <div className="mt-16">

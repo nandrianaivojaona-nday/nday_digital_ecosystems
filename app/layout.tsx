@@ -2,16 +2,15 @@
 
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
-import NdaYLogo from "@/components/NdaYLogo";
+import NdaYLogo from "@/components/home/NdaYLogo";
 import version from "@/lib/version";
 import Link from "next/link";
 
-
 export const metadata = {
-  title: "NdaY’ Digital Ecosystems",
-  description: "Bridging Innovation and Community",
+  title: "NdaY’ Digital Public Infrastructure Ecosystems",
+  description: "Bridging Innovation and Community for a sustainable Future",
   icons: {
-    icon: "/assets/logo/nday-logo.png",
+    icon: "/assets/logo/NdaY'Logo.png", // updated path
   },
 };
 
@@ -23,37 +22,32 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ClientLayout>{children}</ClientLayout>
-      </body>
+        <ClientLayout>
+          {children}
 
-
-      <footer className="fixed bottom-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-t border-white/10 py-3">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-3">
-
-            <NdaYLogo size={42} />
-
-            <div className="leading-tight">
-              <p className="text-sm font-semibold text-white">
-                NdaY' Digital Public Infrastructure Ecosystems
-              </p>
-
-              <p className="text-xs text-white/60">
-                v{version.version} • Build {version.build} • © {new Date().getFullYear()} NdaY' Individual Enterprise
-              </p>
+          {/* Fixed footer – now inside <body> to avoid hydration errors */}
+          <footer className="fixed bottom-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-t border-white/10 py-3">
+            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <NdaYLogo size={42} />
+                <div className="leading-tight">
+                  <p className="text-sm font-semibold text-white">
+                    NdaY' Digital Public Infrastructure Ecosystems
+                  </p>
+                  <p className="text-xs text-white/60">
+                    v{version.version} • Build {version.build} • © {new Date().getFullYear()} NdaY' Individual Enterprise
+                  </p>
+                </div>
+              </div>
+              <div className="hidden md:flex gap-5 text-xs text-white/60">
+                <Link href="/privacy">Privacy</Link>
+                <Link href="/terms">Terms</Link>
+                <Link href="/contact">Contact</Link>
+              </div>
             </div>
-
-          </div>
-
-          <div className="hidden md:flex gap-5 text-xs text-white/60">
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-
-        </div>
-      </footer>
+          </footer>
+        </ClientLayout>
+      </body>
     </html>
   );
 }

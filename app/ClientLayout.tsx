@@ -35,7 +35,7 @@ export default function ClientLayout({
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // 🔹 Handle scroll (for shrinking header)
+  // Handle scroll for shrinking header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -45,7 +45,7 @@ export default function ClientLayout({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🔹 Observe header height dynamically
+  // Observe header height dynamically for padding
   useEffect(() => {
     if (!headerRef.current) return;
 
@@ -62,16 +62,17 @@ export default function ClientLayout({
 
   return (
     <div className="relative min-h-screen isolate">
-      {/* 🌌 BACKGROUND */}
+      {/* GLOBAL BACKGROUND */}
       <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm">
         <img
-          src="/assets/backgrounds/nday-core.jpg"
+          src="/assets/background/nday-digital-infrastructure.png"
           className="h-full w-full object-cover"
+          alt="NdaY background"
         />
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       </div>
 
-      {/* 🔝 HEADER */}
+      {/* HEADER */}
       <header
         ref={headerRef}
         className={`fixed top-0 left-0 z-50 w-full border-b border-white/10 
@@ -84,7 +85,7 @@ export default function ClientLayout({
           {/* LOGO */}
           <Link href="/" className="site-logo shrink-0">
             <img
-              src="/assets/logo/nday-logo.png"
+              src="/assets/logo/NdaY'Logo.png"
               alt="NdaY' Logo"
               className={`drop-shadow-sm transition-all duration-300 ${
                 isScrolled ? "w-27.5" : "w-32"
@@ -101,15 +102,16 @@ export default function ClientLayout({
               className={`font-bold tracking-tight text-white drop-shadow-lg transition-all duration-300
               ${isScrolled ? "text-2xl" : "text-3xl xl:text-4xl"}`}
             >
-              Digital Ecosystems
+              Digital Public Infrastructure Ecosystems
             </h1>
             <p className="mt-1 text-xs font-medium text-white/80 drop-shadow-md xl:text-sm">
-              Bridging Innovation and Community for a Sustainable Madagascar
+              Bridging Innovation and Community for a Sustainable Future
             </p>
           </div>
 
           {/* NAV */}
           <nav className="hidden items-center gap-2 md:flex">
+            <NavLink href="/">Home</NavLink> {/* New Home link */}
             <NavLink href="/about">About</NavLink>
             <NavLink href="/contact">Contact</NavLink>
             <NavLink href="/partner">Partner / Sponsor</NavLink>
@@ -125,10 +127,10 @@ export default function ClientLayout({
         </div>
       </header>
 
-      {/* 📄 MAIN CONTENT */}
+      {/* MAIN CONTENT – padded to avoid overlap with fixed header */}
       <main
         style={{ paddingTop: headerHeight }}
-        className="relative z-10 min-h-screen pb-8"
+        className="relative z-10 min-h-screen"
       >
         {children}
       </main>

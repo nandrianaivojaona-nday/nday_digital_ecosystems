@@ -1,108 +1,102 @@
-import React from "react";
-import Link from "next/link";
-import PlatformCard from "../components/PlatformCard";
+import Hero from "@/components/home/Hero";
+import Vision from "@/components/home/Vision";
+import Foundation from "@/components/home/Foundation";
+import HowItWorks from "@/components/home/HowItWorks";
+import CommunalDPI from "@/components/home/CommunalDPI";
+import EcosystemIntro from "@/components/home/EcosystemIntro";
+import PlatformSection from "@/components/home/PlatformSection";
+import LivingLabs from "@/components/home/LivingLabs";
+import CurrentInitiatives from "@/components/home/CurrentInitiatives";
+import Impact from "@/components/home/Impact";
+import GetInvolved from "@/components/home/GetInvolved";
+import Chapter from "@/components/ui/Chapter";
 
-type Status = "online" | "offline" | "coming";
-type PlatformCardProps = {
-  name: string;
-  desc: string;
-  className?: string;
-  url?: string;
-  status?: Status;
-  image?: string;
-};
-type Platform = {
-  name: string;
-  label: string;
-  className: string;
-  desc: string;
-  url?: string;
-  status: Status;
-};
-const platforms: Platform[] = [
-  {
-    name: "NdaY'Fako",
-    label: "Waste Management",
-    className: "fako",
-    desc: "Waste management ecosystem connecting citizens, collectors, operators and municipalities.",
-    status: "online",
-    url: "https://nda-y-fako-digital-platform.vercel.app",
-  },
-  {
-    name: "NdaY'Tantsaha",
-    label: "Agriculture",
-    className: "tantsaha",
-    desc: "Agricultural ecosystem connecting farmers, markets and knowledge networks.",
-    status: "coming",
-  },
-  {
-    name: "NdaY'Tsidika",
-    label: "Tourism",
-    className: "tsidika",
-    desc: "Tourism ecosystem enabling discovery and cultural experiences.",
-    status: "coming",
-  },
-  {
-    name: "NdaY'Hety",
-    label: "Beauty & Personal Care",
-    className: "hety",
-    desc: "Beauty and personal care services connecting professionals and clients.",
-    status: "offline",
-  },
-  {
-    name: "NdaY'Lanona",
-    label: "Events & Ceremonies",
-    className: "lanona",
-    desc: "Event ecosystem covering traditional, civil and modern ceremonies.",
-    status: "coming",
-  },
-  {
-    name: "NdaY'Radoko",
-    label: "Health (IMCI Focus)",
-    className: "radoko",
-    desc: "Health ecosystem focused on integrated child care and community health services.",
-    status: "offline",
-  },
-  {
-    name: "NdaY'Ben'Tanàna",
-    label: "Governance",
-    className: "bentanana",
-    desc: "Governance ecosystem supporting civic participation and public services.",
-    status: "coming",
-  },
-];
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen text-white">
-      
+    <main>
 
-      {/* 2. APP IDENTITY HEADER (The Title & Subtitle) */}
-      {/* We use pt-32 to start exactly where the nav bar ends */}
-      <section className="w-full px-8 pt-32 pb-12">
-        {/* We don't need this anymore since we have the header telling the same thing 
-        <div className="border-l-4 border-white/20 pl-6 py-2">
-          <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow-lg md:text-6xl">
-            NdaY’ Digital Ecosystems
-          </h1>
-          <p className="mt-4 text-lg font-medium text-white/80 drop-shadow-md md:text-2xl">
-            Bridging Innovation and Community for a Sustainable Madagascar
-          </p>
-        </div>
-        */}
+      {/* 1. Hero – special hero variant for large, immersive display */}
+      <Chapter
+        id="hero"
+        title="Bridging Innovation and Community for a Sustainable Future"
+        description="Building the Digital Public Infrastructure that empowers every Commune to innovate, collaborate and thrive."
+        manifesto="A world where connected people enjoy a high quality standard of living."
+        align="center"
+        variant="hero"
+      >
+        <Hero />
+      </Chapter>
 
-        {/* 3. ECOSYSTEM GRID (Starts immediately after the title) */}
-        <div className="mt-16">
-          <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-white/40 mb-8 px-1">
-            Explore Ecosystems
-          </h2>
-          <div className="platform-grid">
-            {platforms.map((p, i) => (
-              <PlatformCard key={i} {...p} />
-            ))}
-          </div>
+      {/* 2. One shared foundation – narrative variant (default) */}
+      <Chapter
+        id="foundation"
+        title="One shared foundation"
+        description="Communities need more than isolated digital tools. They need trusted digital foundations that connect people, territories, services and knowledge. NdaY' Core provides that common foundation."
+        align="center"
+      >
+        <div className="space-y-16">
+          <HowItWorks />
+          <Foundation />
         </div>
-      </section>
+      </Chapter>
+
+      {/* 3. Communes at the centre */}
+      <Chapter
+        id="communes"
+        title="Communes at the centre"
+        description="Every transformation begins where people live. Our Communal Digital Public Infrastructure enables local governments, citizens, associations and businesses to build together."
+        align="center"
+      >
+        <CommunalDPI />
+      </Chapter>
+
+      {/* 4. From infrastructure to ecosystems */}
+      <Chapter
+        id="ecosystems"
+        title="From infrastructure to ecosystems"
+        description="Agriculture. Waste. Governance. Tourism. Health. Education. Each ecosystem grows from the same digital foundation while responding to local realities."
+        align="center"
+      >
+        <div className="space-y-16">
+          <EcosystemIntro />
+          <PlatformSection />
+        </div>
+      </Chapter>
+
+      {/* 5. Innovation in the field */}
+      <Chapter
+        id="innovation"
+        title="Innovation in the field"
+        description="Living Labs transform ideas into measurable solutions by connecting communities, researchers, entrepreneurs and institutions."
+        align="center"
+      >
+        <LivingLabs />
+      </Chapter>
+
+      {/* 6. Growing together */}
+      <Chapter
+        id="growing-together"
+        title="Growing together"
+        description="Each new Commune strengthens the national network. Each ecosystem enriches the others. Together they form a resilient Digital Public Infrastructure for Madagascar."
+        align="center"
+      >
+        <div className="space-y-16">
+          <CurrentInitiatives />
+          <Impact />
+        </div>
+      </Chapter>
+
+      {/* 7. Join the movement */}
+      <Chapter
+        id="join"
+        title="Join the movement"
+        description="Whether you're a developer, a policymaker, a community leader, or a citizen – there's a place for you in the NdaY ecosystem."
+        align="center"
+        cta={{ label: "Start contributing today", href: "/contribute" }}
+      >
+        <GetInvolved />
+      </Chapter>
+
     </main>
   );
 }
